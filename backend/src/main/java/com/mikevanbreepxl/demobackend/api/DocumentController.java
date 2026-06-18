@@ -13,6 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@RequestMapping("documents")
 @RequiredArgsConstructor
 public class DocumentController {
     private final DocumentService documentService;
