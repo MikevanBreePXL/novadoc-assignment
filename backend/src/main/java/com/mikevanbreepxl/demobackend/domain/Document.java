@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.List;
 
 @Entity
@@ -19,9 +21,8 @@ public class Document {
     @Getter
     @Enumerated(EnumType.STRING)
     private DocumentType Type;
-//    @Getter
-//    @Setter
-//    private List<MetadataType> MetadataFields;
+    @OneToMany
+    private List<MetadataField> Metadata;
 
     public Document() {
         // JPA Only!
