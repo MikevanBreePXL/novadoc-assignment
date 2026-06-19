@@ -2,7 +2,7 @@ package com.mikevanbreepxl.demobackend.api;
 
 import com.mikevanbreepxl.demobackend.api.dto.DocumentDto;
 import com.mikevanbreepxl.demobackend.api.request.DocumentRequest;
-import com.mikevanbreepxl.demobackend.domain.Document;
+import com.mikevanbreepxl.demobackend.domain.DocumentClass;
 import com.mikevanbreepxl.demobackend.exceptions.DocumentNotFoundException;
 import com.mikevanbreepxl.demobackend.service.DocumentService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ public class DocumentController {
     private final DocumentService documentService;
 
     @GetMapping
-    public List<Document> getAllDocuments() {
+    public List<DocumentClass> getAllDocuments() {
         return documentService.getAllDocuments();
     }
 

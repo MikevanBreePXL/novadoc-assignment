@@ -5,12 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.List;
 
 @Entity
-public class Document {
+public class DocumentClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
@@ -24,11 +22,11 @@ public class Document {
     @OneToMany
     private List<MetadataField> Metadata;
 
-    public Document() {
+    public DocumentClass() {
         // JPA Only!
     }
 
-    public Document(String name, DocumentType type) {
+    public DocumentClass(String name, DocumentType type) {
         Name = name;
         Type = type;
     }
