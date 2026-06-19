@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HelloWorld from '../pages/HelloWorld.vue';
+import DashboardPage from '../pages/DashboardPage.vue';
 
-const routes = [{ path: '/', component: HelloWorld }];
+const routes = [
+  { path: '/', component: DashboardPage },
+  { path: '/define', component: () => import('../pages/DefineNewDocumentTypePage.vue') },
+  { path: '/create', component: () => import('../pages/CreateDocumentPage.vue') },
+];
 
 const router = createRouter({
   history: createWebHistory(),
