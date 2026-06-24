@@ -17,27 +17,23 @@ public class DocumentClass {
     @Setter
     private String Name;
     @Getter
+    @Setter
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private DocumentType Type;
-    @OneToMany
+    @Getter
+    @Setter
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<MetadataField> Metadata;
 
-    public DocumentClass() {
-        // JPA Only!
+    protected DocumentClass() {
+        // JPA Only
     }
 
-    public DocumentClass(String name, DocumentType type) {
+    public DocumentClass(String name, DocumentType type,  List<MetadataField> metadata) {
         Name = name;
         Type = type;
+        Metadata = metadata;
     }
 
-    /*
-    public void addMetadataField(MetadataType metadataField) {
-        MetadataFields.add(metadataField);
-    }
-
-    public boolean removeMetadataField(MetadataType metadataField) {
-        return MetadataFields.remove(metadataField);
-    }
-     */
 }

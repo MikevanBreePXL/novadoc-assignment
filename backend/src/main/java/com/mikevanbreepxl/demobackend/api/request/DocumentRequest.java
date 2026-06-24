@@ -1,19 +1,13 @@
 package com.mikevanbreepxl.demobackend.api.request;
 
 import com.mikevanbreepxl.demobackend.domain.DocumentType;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-public class DocumentRequest {
-    @Getter
-    @Setter
-    private String name;
-    @Getter
-    @Setter
-    private DocumentType type;
+import java.util.List;
 
-    public DocumentRequest(String name, DocumentType type) {
-    this.name = name;
-    this.type = type;
-    }
-}
+public record DocumentRequest(
+    @NotBlank String name,
+    @NotNull DocumentType documentType,
+    @NotNull List<MetadataFieldRequest> metadataFields
+) { }

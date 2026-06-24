@@ -1,32 +1,28 @@
 package com.mikevanbreepxl.demobackend.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+@Embeddable
 public class MetadataField {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Getter
     @Setter
-    private MetadataType Type;
+    private String name;
     @Getter
     @Setter
-    private String content;
+    @Enumerated(EnumType.STRING)
+    private MetadataType type;
 
-    public MetadataField()
-    {
-        // JPA Only!
+    protected MetadataField() {
+        // JPA only
     }
 
-    public MetadataField(String content, MetadataType Type)
+    public MetadataField(String name, MetadataType type)
     {
-        this.content = content;
-        this.Type = Type;
+        this.name = name;
+        this.type = type;
     }
 }
