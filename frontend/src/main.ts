@@ -3,6 +3,7 @@ import './style.css';
 import App from './App.vue';
 import router from './router';
 import PrimeVue from 'primevue/config';
+import Ripple from 'primevue/ripple';
 import Lara from '@primeuix/themes/lara';
 import { VueQueryPlugin } from '@tanstack/vue-query';
 import { definePreset } from '@primeuix/themes';
@@ -33,6 +34,9 @@ app.use(PrimeVue, {
   theme: {
     preset: themePreset,
   },
+  ripple: true
 });
+
+app.directive('ripple', Ripple);
 
 app.mount('#app');

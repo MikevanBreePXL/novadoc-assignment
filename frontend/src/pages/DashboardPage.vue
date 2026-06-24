@@ -7,11 +7,9 @@ const isHovered = ref(false);
 const router = useRouter();
 
 const CreateDocumentAction = () => {
-  console.log('Create document action triggered');
   router.push('/create');
 };
 const defineNewDocumentTypeAction = () => {
-  console.log('Define new document type action triggered');
   router.push('/define');
 };
 </script>
@@ -24,10 +22,18 @@ const defineNewDocumentTypeAction = () => {
       </template>
       <template #footer>
         <div class="flex flex-row align-end justify-end">
-          <Button label="Create" icon="pi pi-plus" @click="CreateDocumentAction" />
+          <Button
+            v-ripple
+            label="Create"
+            icon="pi pi-plus"
+            @click="CreateDocumentAction"
+          />
         </div>
       </template>
-      <p>Digitaliseer een nieuw document, volgens een van de bestaande document types.</p>
+      <p>
+        Digitaliseer een nieuw document, volgens een van de bestaande document
+        types.
+      </p>
     </Panel>
     <Panel @mouseenter="isHovered = true" class="panel">
       <template #header>
@@ -35,10 +41,18 @@ const defineNewDocumentTypeAction = () => {
       </template>
       <template #footer>
         <div class="flex flex-row align-end justify-end">
-          <Button label="Create" icon="pi pi-plus" @click="defineNewDocumentTypeAction" />
+          <Button
+            v-ripple
+            label="Create"
+            icon="pi pi-plus"
+            @click="defineNewDocumentTypeAction"
+          />
         </div>
       </template>
-      <p>Beheer de document types die gebruikt kunnen worden om een nieuw document te maken.</p>
+      <p>
+        Beheer de document types die gebruikt kunnen worden om een nieuw
+        document te maken.
+      </p>
     </Panel>
   </div>
 </template>
@@ -57,7 +71,7 @@ const defineNewDocumentTypeAction = () => {
 
 @media only screen and (max-width: 600px) {
   .dashboard-page {
-    padding-top:50px;
+    padding-top: 50px;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
