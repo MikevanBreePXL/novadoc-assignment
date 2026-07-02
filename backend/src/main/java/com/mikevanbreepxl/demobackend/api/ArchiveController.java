@@ -4,6 +4,7 @@ import com.mikevanbreepxl.demobackend.api.dto.ArchiveDto;
 import com.mikevanbreepxl.demobackend.api.request.ArchiveRequest;
 import com.mikevanbreepxl.demobackend.service.ArchiveService;
 import jakarta.annotation.Nullable;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public class ArchiveController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> saveArchive(ArchiveRequest archiveRequest) {
+    public ResponseEntity<Void> saveArchive(@Valid @RequestBody ArchiveRequest archiveRequest) {
         Long createdId = archiveService.saveArchive(archiveRequest);
         return ResponseEntity.created(URI.create("/archive/" + createdId)).build();
     }
