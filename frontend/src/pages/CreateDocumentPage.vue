@@ -63,10 +63,10 @@ type MetadataValueRow = {
 type CreateDocumentPayload = {
   name: string;
   documentClassId: number | null;
-  metadataFields: Array<{
+  metadata: Array<{
     name: string;
     type: MetadataType;
-    value: string | null;
+    content: string | null;
   }>;
 };
 
@@ -117,7 +117,7 @@ const formatDate = (value: Date) => {
   const month = String(value.getMonth() + 1).padStart(2, '0');
   const year = value.getFullYear();
 
-  return `${day}/${month}/${year}`;
+  return `${day}-${month}-${year}`;
 };
 
 const normalizeMetadataField = (
@@ -235,10 +235,10 @@ const save = async () => {
   const payload: CreateDocumentPayload = {
     name: form.name.trim(),
     documentClassId: selectedDocumentType.value?.id ?? null,
-    metadataFields: form.metadataFields.map((field) => ({
+    metadata: form.metadataFields.map((field) => ({
       name: field.name.trim(),
       type: field.type,
-      value:
+      content:
         field.type === 'DATE'
           ? field.value instanceof Date
             ? formatDate(field.value)
