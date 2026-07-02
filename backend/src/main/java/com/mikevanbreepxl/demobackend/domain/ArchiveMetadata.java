@@ -17,7 +17,8 @@ public class ArchiveMetadata {
     @Setter
     @Enumerated(EnumType.STRING)
     private MetadataType type;
-
+    @Getter
+    @Setter
     private String content;
 
     protected ArchiveMetadata() {
